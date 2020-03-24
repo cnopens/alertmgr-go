@@ -155,7 +155,7 @@ type WebhookMessage struct {
 
 // Notify implements the Notifier interface.
 func (w *Webhook) Notify(ctx context.Context, alerts ...*types.Alert) (bool, error) {
-	data := w.tmpl.Data(receiverName(ctx), groupLabels(ctx), alerts...)
+	data := w.tmpl.Data(receiverName(ctx), groupLabels(ctx), alerts)
 
 	groupKey, ok := GroupKey(ctx)
 	if !ok {

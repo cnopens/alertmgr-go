@@ -29,7 +29,7 @@ import (
 	"time"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/matttproud/golang_protobuf_extensions/pbutil"
-	pb "github.com/prometheus/alertmanager/nflog/nflogpb"
+	pb "github.com/cnopens/alertmgr-go/v1/nflog/nflogpb"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/log"
 	"github.com/weaveworks/mesh"
@@ -44,8 +44,8 @@ type Log interface {
 	// The Log* methods store a notification log entry for
 	// a fully qualified receiver and a given IDs identifying the
 	// alert object.
-	LogActive(r *pb.Receiver, key, hash []byte) error
-	LogResolved(r *pb.Receiver, key, hash []byte) error
+	LogActive(r *nflog.Receiver, key, hash []byte) error
+	LogResolved(r *nflog.Receiver, key, hash []byte) error
 
 	// Query the log along the given Paramteres.
 	//

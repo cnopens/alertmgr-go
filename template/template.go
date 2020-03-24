@@ -27,8 +27,8 @@ import (
 
 	"github.com/prometheus/common/model"
 
-	"github.com/prometheus/alertmanager/template/internal/deftmpl"
-	"github.com/prometheus/alertmanager/types"
+	"github.com/cnopens/alertmgr-go/v1/template/internal/deftmpl"
+	"github.com/cnopens/alertmgr-go/v1/types"
 )
 
 // Template bundles a text and a html template instance.
