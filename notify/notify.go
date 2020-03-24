@@ -15,26 +15,24 @@ package notify
 
 import (
 	"bytes"
+	"context"
 	"crypto/sha256"
 	"encoding/binary"
 	"fmt"
-	"sync"
-	"time"
-
 	"github.com/cenkalti/backoff"
+	"github.com/cnopens/alertmgr-go/v1/config"
+	"github.com/cnopens/alertmgr-go/v1/inhibit"
+	"github.com/cnopens/alertmgr-go/v1/nflog"
+	"github.com/cnopens/alertmgr-go/v1/nflog/nflogpb"
+	"github.com/cnopens/alertmgr-go/v1/silence"
+	"github.com/cnopens/alertmgr-go/v1/template"
+	"github.com/cnopens/alertmgr-go/v1/types"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/model"
-	"golang.org/x/net/context"
-
-	"github.com/prometheus/alertmanager/config"
-	"github.com/prometheus/alertmanager/inhibit"
-	"github.com/prometheus/alertmanager/nflog"
-	"github.com/prometheus/alertmanager/nflog/nflogpb"
-	"github.com/prometheus/alertmanager/silence"
-	"github.com/prometheus/alertmanager/template"
-	"github.com/prometheus/alertmanager/types"
+	"sync"
+	"time"
 )
 
 var (
@@ -300,10 +298,8 @@ func NewInhibitStage(m types.Muter, mk types.Marker) *InhibitStage {
 func (n *InhibitStage) Exec(ctx context.Context, alerts ...*types.Alert) (context.Context, []*types.Alert, error) {
 	var filtered []*types.Alert
 	for _, a := range alerts {
-		_,i,ok := n.marker.Inhibited(a.Fingerprint())
+		ok := n.marker.Inhibited(a.Fingerprint())
 		// TODO(fabxc): increment total alerts counter.
-			i++
-			fmt.Println(i)
 		// Do not send the alert if the silencer mutes it.
 		if !n.muter.Mutes(a.Labels) {
 			// TODO(fabxc): increment muted alerts counter.
@@ -334,11 +330,10 @@ func NewSilenceStage(s *silence.Silences, mk types.Marker) *SilenceStage {
 func (n *SilenceStage) Exec(ctx context.Context, alerts ...*types.Alert) (context.Context, []*types.Alert, error) {
 	var filtered []*types.Alert
 	for _, a := range alerts {
-	arr,i, ok := n.marker.Silenced(a.Fingerprint())
+		arr, ok := n.marker.Silenced(a.Fingerprint())
 		// TODO(fabxc): increment total alerts counter.
-	  i++
-    fmt.Print(arr)
-    // Do not send the alert if the silencer mutes it.
+		fmt.Print(arr)
+		// Do not send the alert if the silencer mutes it.
 		sils, err := n.silences.Query(
 			silence.QState(silence.StateActive),
 			silence.QMatches(a.Labels),

@@ -15,10 +15,17 @@ package notify
 
 import (
 	"bytes"
+	"context"
 	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/cnopens/alertmgr-go/v1/config"
+	"github.com/cnopens/alertmgr-go/v1/template"
+	"github.com/cnopens/alertmgr-go/v1/types"
+	"github.com/prometheus/common/log"
+	"github.com/prometheus/common/model"
+	"golang.org/x/net/context/ctxhttp"
 	"io"
 	"io/ioutil"
 	"mime"
@@ -29,15 +36,6 @@ import (
 	"net/url"
 	"strings"
 	"time"
-
-	"github.com/prometheus/common/log"
-	"github.com/prometheus/common/model"
-	"golang.org/x/net/context"
-	"golang.org/x/net/context/ctxhttp"
-
-	"github.com/prometheus/alertmanager/config"
-	"github.com/prometheus/alertmanager/template"
-	"github.com/prometheus/alertmanager/types"
 )
 
 type notifierConfig interface {
@@ -565,11 +563,11 @@ type hipchatReq struct {
 }
 
 // Notify implements the Notifier interface.
-func (n *Hipchat) Notify(ctx context.Context, as ...*types.Alert) (bool, error) {
+func (n *Hipchat) Notify(ctx context.Context, alert ...*types.Alert) (bool, error) {
 	var err error
 	var msg string
 	var (
-		data     = n.tmpl.Data(receiverName(ctx), groupLabels(ctx), as...)
+		data     = n.tmpl.Data(receiverName(ctx), groupLabels(ctx), alert)
 		tmplText = tmplText(n.tmpl, data, &err)
 		tmplHTML = tmplHTML(n.tmpl, data, &err)
 		url      = fmt.Sprintf("%sv2/room/%s/notification?auth_token=%s", n.conf.APIURL, n.conf.RoomID, n.conf.AuthToken)

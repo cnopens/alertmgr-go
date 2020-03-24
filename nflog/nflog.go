@@ -21,12 +21,12 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"github.com/cnopens/alertmgr-go/v1/nflog/nflogpb"
 	"io"
 	"math/rand"
 	"os"
 	"sync"
 	"time"
-
 	"github.com/golang/protobuf/ptypes"
 	"github.com/matttproud/golang_protobuf_extensions/pbutil"
 	pb "github.com/prometheus/alertmanager/nflog/nflogpb"
@@ -242,7 +242,7 @@ func New(opts ...Option) (Log, error) {
 	l := &nlog{
 		logger: log.NewNopLogger(),
 		now:    utcNow,
-		st:     map[string]*pb.MeshEntry{},
+		st:     map[string]*nflogpb.MeshEntry{},
 	}
 	for _, o := range opts {
 		if err := o(l); err != nil {
@@ -326,22 +326,22 @@ Loop:
 }
 
 // LogActive implements the Log interface.
-func (l *nlog) LogActive(r *pb.Receiver, key, hash []byte) error {
+func (l *nlog) LogActive(r *nflogpb.Receiver, key, hash []byte) error {
 	return l.log(r, key, hash, false)
 }
 
 // LogResolved implements the Log interface.
-func (l *nlog) LogResolved(r *pb.Receiver, key, hash []byte) error {
+func (l *nlog) LogResolved(r *nflogpb.Receiver, key, hash []byte) error {
 	return l.log(r, key, hash, true)
 }
 
 // stateKey returns a string key for a log entry consisting of the group key
 // and receiver.
-func stateKey(k []byte, r *pb.Receiver) string {
+func stateKey(k []byte, r *nflogpb.Receiver) string {
 	return fmt.Sprintf("%s:%s", k, r)
 }
 
-func (l *nlog) log(r *pb.Receiver, gkey, ghash []byte, resolved bool) error {
+func (l *nlog) log(r *nflogpb.Receiver, gkey, ghash []byte, resolved bool) error {
 	// Write all st with the same timestamp.
 	now := l.now()
 	key := stateKey(gkey, r)
@@ -370,8 +370,8 @@ func (l *nlog) log(r *pb.Receiver, gkey, ghash []byte, resolved bool) error {
 		return err
 	}
 
-	e := &pb.MeshEntry{
-		Entry: &pb.Entry{
+	e := &nflogpb.MeshEntry{
+		Entry: &nflogpb.Entry{
 			Receiver:  r,
 			GroupKey:  gkey,
 			GroupHash: ghash,
@@ -412,11 +412,11 @@ func (l *nlog) GC() (int, error) {
 }
 
 // Query implements the Log interface.
-func (l *nlog) Query(params ...QueryParam) ([]*pb.Entry, error) {
+func (l *nlog) Query(params ...QueryParam) ([]*nflogpb.Entry, error) {
 	start := time.Now()
 	l.metrics.queriesTotal.Inc()
 
-	entries, err := func() ([]*pb.Entry, error) {
+	entries, err := func() ([]*nflogpb.Entry, error) {
 		q := &query{}
 		for _, p := range params {
 			if err := p(q); err != nil {
@@ -435,7 +435,7 @@ func (l *nlog) Query(params ...QueryParam) ([]*pb.Entry, error) {
 		defer l.mtx.RUnlock()
 
 		if le, ok := l.st[stateKey(q.groupKey, q.recv)]; ok {
-			return []*pb.Entry{le.Entry}, nil
+			return []*nflogpb.Entry{le.Entry}, nil
 		}
 		return nil, ErrNotFound
 	}()
