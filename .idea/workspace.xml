@@ -3,13 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="f4bcd055-739c-4992-bc83-c18e4525131c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notify/impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/notify/impl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notify/notify.go" beforeDir="false" afterPath="$PROJECT_DIR$/notify/notify.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="GOROOT" path="$USER_HOME$/go" />
   <component name="Git.Settings">
@@ -24,6 +38,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -59,6 +74,10 @@
     <proxy>https://goproxy.io</proxy>
   </component>
   <component name="WindowStateProjectService">
+    <state x="555" y="214" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585033787023">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="555" y="214" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1585033787023" />
     <state x="451" y="146" width="1007" height="813" key="CommitChangelistDialog2" timestamp="1585030387084">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -71,10 +90,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="555" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1585030399305" />
-    <state x="484" y="249" width="951" height="606" key="find.popup" timestamp="1585023971624">
+    <state x="484" y="249" width="951" height="606" key="find.popup" timestamp="1585033725112">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="484" y="249" width="951" height="606" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1585023971624" />
+    <state x="484" y="249" width="951" height="606" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1585033725112" />
     <state x="705" y="172" width="500" height="761" key="refactoring.ChangeSignatureDialog" timestamp="1585029362074">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

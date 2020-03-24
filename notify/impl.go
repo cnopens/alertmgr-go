@@ -563,14 +563,14 @@ type hipchatReq struct {
 }
 
 // Notify implements the Notifier interface.
-func (n *Hipchat) Notify(ctx context.Context, alert ...*types.Alert) (bool, error) {
+func (n *Hipchat) Notify(ctx context.Context, alert *types.Alert) (bool, error) {
 	var err error
 	var msg string
 	var (
 		data     = n.tmpl.Data(receiverName(ctx), groupLabels(ctx), alert)
 		tmplText = tmplText(n.tmpl, data, &err)
 		tmplHTML = tmplHTML(n.tmpl, data, &err)
-		url      = fmt.Sprintf("%sv2/room/%s/notification?auth_token=%s", n.conf.APIURL, n.conf.RoomID, n.conf.AuthToken)
+		url      = ""//fmt.Sprintf("%sv1/room/%s/notification?auth_token=%s", n.conf.APIURL, n.conf.RoomID, n.conf.AuthToken)
 	)
 
 	if n.conf.MessageFormat == "html" {

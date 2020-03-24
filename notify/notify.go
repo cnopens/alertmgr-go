@@ -332,7 +332,6 @@ func (n *SilenceStage) Exec(ctx context.Context, alerts ...*types.Alert) (contex
 	for _, a := range alerts {
 		_,ok := n.marker.Silenced(a.Fingerprint())
 		// TODO(fabxc): increment total alerts counter.
-		fmt.Print(arr)
 		// Do not send the alert if the silencer mutes it.
 		sils, err := n.silences.Query(
 			silence.QState(silence.StateActive),
