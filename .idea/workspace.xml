@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f4bcd055-739c-4992-bc83-c18e4525131c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/notify/impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/notify/impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notify/notify.go" beforeDir="false" afterPath="$PROJECT_DIR$/notify/notify.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="$USER_HOME$/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ZYjZXYqTxVup155VkWGv7y9GYX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>https://goproxy.io</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="146" width="1007" height="813" key="CommitChangelistDialog2" timestamp="1585030387084">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="451" y="146" width="1007" height="813" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1585030387084" />
+    <state x="479" y="187" key="SettingsEditor" timestamp="1585023303353">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="479" y="187" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1585023303353" />
+    <state x="555" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585030399305">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="555" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1585030399305" />
+    <state x="484" y="249" width="951" height="606" key="find.popup" timestamp="1585023971624">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="484" y="249" width="951" height="606" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1585023971624" />
+    <state x="705" y="172" width="500" height="761" key="refactoring.ChangeSignatureDialog" timestamp="1585029362074">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="705" y="172" width="500" height="761" key="refactoring.ChangeSignatureDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1585029362074" />
+  </component>
+</project>
