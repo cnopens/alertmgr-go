@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4bcd055-739c-4992-bc83-c18e4525131c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/notify/impl.go" beforeDir="false" afterPath="$PROJECT_DIR$/notify/impl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notify/notify.go" beforeDir="false" afterPath="$PROJECT_DIR$/notify/notify.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="remove err char" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove err char" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -330,7 +330,7 @@ func NewSilenceStage(s *silence.Silences, mk types.Marker) *SilenceStage {
 func (n *SilenceStage) Exec(ctx context.Context, alerts ...*types.Alert) (context.Context, []*types.Alert, error) {
 	var filtered []*types.Alert
 	for _, a := range alerts {
-		arr, ok := n.marker.Silenced(a.Fingerprint())
+		_,ok := n.marker.Silenced(a.Fingerprint())
 		// TODO(fabxc): increment total alerts counter.
 		fmt.Print(arr)
 		// Do not send the alert if the silencer mutes it.
